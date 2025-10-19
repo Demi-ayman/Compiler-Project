@@ -1,0 +1,10 @@
+{ This is a sample TINY program }
+x := 5;
+read y;
+if x < y then
+    z := x + y * 2
+end;
+repeat
+    x := x - 1
+until x = 0;
+write z
