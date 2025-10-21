@@ -173,7 +173,7 @@ class TinyScanner{
         {
           case ':':
             if(peekNextChar() =='='){
-              tokens.push_back({string(1,':='),ASSIGN});
+              tokens.push_back({":=", ASSIGN});
               moveNext();
               moveNext();
             }else{
@@ -250,8 +250,6 @@ void writeTokensToFile(const vector<Token> & tokens,const string & filename){
     cerr<<"Error: Cannot create file "<<filename<<endl;
     return ;
   }
-  file<<"List of (tokenvalue, tokentype):\n";
-  file<<"================================\n";
 
   for(const auto& token:tokens){
     if(token.type != END_OF_FILE){
