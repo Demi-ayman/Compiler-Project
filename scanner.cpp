@@ -112,7 +112,7 @@ class TinyScanner{
   // read an identifier or keyword
   Token readIdentifier(){
     string identifierStr;
-    while (currentPosition<sourceCode.length() && isAlphaNumeric(getCurrentChar()))
+    while (currentPosition<sourceCode.length() && isLetter(getCurrentChar()))
     {
       identifierStr+=getCurrentChar();
       moveNext();
