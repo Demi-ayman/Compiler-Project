@@ -5,7 +5,7 @@
   * Shahd mohamed abdelsalam      2100898
   * Kareem Mohamed Reda Mostafa   2101852
   * Demiana Ayman Gerges          2100590
-  * Mariam Hany Mahmoud Noureldin 2100437 
+  * Mariam Hany Mahmoud Noureldin 2100437
   * Toka Tarek Kamal Habash       2100817
 */
 #include <iostream>
@@ -15,10 +15,10 @@
 #include <unordered_map>
 #include <vector>
 using namespace std;
-// Token tyoes we need to recognize
 
+// Token types we need to recognize
 enum TokenType{
-  SEMICOLON,IF,THEN, END, REPEAT, UNTIL, IDENTIFIER, ASSIGN, READ, WRITE, LESSTHAN, EQUAL, PLUS, MINUS, MULT, DIV, OPENBRACKET, CLOSEDBRACKET, NUMBER, UNKNOWN, END_OF_FILE // just increase two enums UNKNOWN, END_OF_FILE
+  SEMICOLON,IF,THEN, ELSE, END, REPEAT, UNTIL, IDENTIFIER, ASSIGN, READ, WRITE, LESSTHAN, EQUAL, PLUS, MINUS, MULT, DIV, OPENBRACKET, CLOSEDBRACKET, NUMBER, UNKNOWN, END_OF_FILE // just increase two enums UNKNOWN, END_OF_FILE
 };
 
 // Structure to store token information
@@ -37,13 +37,13 @@ class TinyScanner{
   // Initialize reserved keywords
   void setupKeywords(){
     keywords={
-      {"if",IF},{"then",THEN},{"end",END},
+      {"if",IF},{"else",ELSE},{"then",THEN},{"end",END},
       {"repeat",REPEAT},{"until",UNTIL},
       {"read",READ},{"write",WRITE}
     };
   }
 
-  // get current character 
+  // get current character
   char getCurrentChar(){
     if(currentPosition >= sourceCode.length())return '\0';
     return sourceCode[currentPosition];
@@ -55,12 +55,12 @@ class TinyScanner{
     return sourceCode[currentPosition+1];
   }
 
-  // move to next char 
+  // move to next char
   void moveNext(){
     if(currentPosition < sourceCode.length())currentPosition++;
   }
 
-  // skip spaces , tabs, newlines 
+  // skip spaces , tabs, newlines
   void skipWhitespace(){
     while (currentPosition < sourceCode.length() && isspace(getCurrentChar()))
     {
@@ -68,8 +68,8 @@ class TinyScanner{
     }
   }
 
-  // skip comments { } and //  
-  
+  // skip comments { }
+
   void skipComments(){
     //  comments { ... }
     if(getCurrentChar() == '{'){
@@ -79,13 +79,7 @@ class TinyScanner{
       }
       if (getCurrentChar()=='}') moveNext();
     }
-    // line comments //
-    else if(getCurrentChar() == '/' && peekNextChar() == '/'){
-      while (currentPosition< sourceCode.length() && getCurrentChar() != '\n')
-      {
-        moveNext();
-      }
-    } 
+
   }
 
   //check if char is a letter
@@ -103,7 +97,7 @@ class TinyScanner{
     return isLetter(c) || isDigit(c);
   }
 
-  // read a number token 
+  // read a number token
   Token readNumber(){
     string numberStr;
     while (currentPosition < sourceCode.length() && isDigit(getCurrentChar()))
@@ -112,13 +106,13 @@ class TinyScanner{
       moveNext();
     }
     return {numberStr,NUMBER};
-    
+
   }
 
   // read an identifier or keyword
   Token readIdentifier(){
     string identifierStr;
-    while (currentPosition<sourceCode.length() && isAlphaNumeric(getCurrentChar()))   
+    while (currentPosition<sourceCode.length() && isAlphaNumeric(getCurrentChar()))
     {
       identifierStr+=getCurrentChar();
       moveNext();
@@ -134,7 +128,7 @@ class TinyScanner{
       return {identifierStr,it->second};
     }
     return {identifierStr,IDENTIFIER};
-    
+
   }
 
   public:
@@ -143,7 +137,7 @@ class TinyScanner{
     setupKeywords();
   }
 
-  // main scanning func - converts source code to tokens 
+  // main scanning func - converts source code to tokens
   vector<Token> scanAllTokens(){
     vector<Token> tokens;
     while(currentPosition < sourceCode.length()){
@@ -152,9 +146,9 @@ class TinyScanner{
       if(currentPosition >= sourceCode.length() )break;
 
       char currentChar = getCurrentChar();
-      
+
       // skip comments
-      if(currentChar == '{'||(currentChar == '/' && peekNextChar() == '/')){
+      if(currentChar == '{'){
         skipComments();
         continue;
       }
@@ -189,7 +183,7 @@ class TinyScanner{
           case '/':tokens.push_back({string(1,'/'),DIV});moveNext();break;
           case '(':tokens.push_back({string(1,'('),OPENBRACKET});moveNext();break;
           case ')':tokens.push_back({string(1,')'),CLOSEDBRACKET});moveNext();break;
-        
+
           default:
             tokens.push_back({string(1,currentChar),UNKNOWN});
             moveNext();
@@ -206,6 +200,7 @@ class TinyScanner{
     switch(type){
       case SEMICOLON:return "SEMICOLON";
       case IF:return "IF";
+      case ELSE: return "ELSE";
       case THEN: return "THEN";
       case END:return "END";
       case REPEAT:return "REPEAT";
@@ -226,12 +221,12 @@ class TinyScanner{
       case UNKNOWN: return "UNKNOWN";
       case END_OF_FILE: return "END_OF_FILE";
       default: return "UNKNOWN";
-       
+
     }
   }
 };
 
-// helper func to read entire file 
+// helper func to read entire file
 string readFileToString(const string & filename){
   ifstream file(filename);
   if(!file.is_open()){
@@ -264,14 +259,14 @@ int main(int argc, char* argv[]){
 
   string inputFile="input.txt";
   string outputFile="output.txt";
-  
+
   if(argc >= 2)inputFile=argv[1];
   if(argc>=3)outputFile=argv[2];
 
   cout<<"Input file: "<<inputFile<<endl;
   cout<<"Output file: "<<outputFile<<endl;
 
-  // read input file 
+  // read input file
   string sourceCode=readFileToString(inputFile);
   if(sourceCode.empty()){
     cerr<<"Error: Input file is empty or not found \n";
@@ -283,7 +278,7 @@ int main(int argc, char* argv[]){
   TinyScanner scanner(sourceCode);
   vector<Token> tokens = scanner.scanAllTokens();
 
-  // write results to file 
+  // write results to file
   writeTokensToFile(tokens,outputFile);
 
   cout<<"Scanning completed successfully!\n";
