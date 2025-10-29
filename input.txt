@@ -1,10 +1,22 @@
-{ This is a sample TINY program }
-x := 5;
+{ Sample Tiny Language test combining all tokens }
+
+read x1;
 read y;
-if x < y then
-    z := x + y * 2
+z := 10;
+
+if x1 < y then
+    z := z + 1;
+else
+    z := z - 2;
 end;
+
 repeat
-    x := x - 1
-until x = 0;
-write z
+    x1 := x1 * (y + z) / 3;
+    write x1;
+    { check equality case }
+    if x1 = z then
+        write z;
+    end;
+until x1 < 5;
+
+write z;
