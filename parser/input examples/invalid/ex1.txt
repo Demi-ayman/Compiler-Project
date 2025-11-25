@@ -1,0 +1,7 @@
+# missing expression after :=
+
+# x := ;
+
+x,IDENTIFIER
+:=,ASSIGN
+;,SEMICOLON

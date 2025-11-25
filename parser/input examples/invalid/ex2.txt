@@ -1,0 +1,13 @@
+# missing THEN
+
+# if x < 5
+#    write x
+# end
+
+if,IF
+x,IDENTIFIER
+<,LESSTHAN
+5,NUMBER
+write,WRITE
+x,IDENTIFIER
+end,END

@@ -1,0 +1,13 @@
+# if x < 10 then
+#    write x;
+# end
+
+if,IF
+x,IDENTIFIER
+<,LESSTHAN
+10,NUMBER
+then,THEN
+write,WRITE
+x,IDENTIFIER
+;,SEMICOLON
+end,END

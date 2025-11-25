@@ -1,0 +1,15 @@
+# repeat
+#    x := x - 1;
+# until x = 0
+
+repeat,REPEAT
+x,IDENTIFIER
+:=,ASSIGN
+x,IDENTIFIER
+-,MINUS
+1,NUMBER
+;,SEMICOLON
+until,UNTIL
+x,IDENTIFIER
+=,EQUAL
+0,NUMBER

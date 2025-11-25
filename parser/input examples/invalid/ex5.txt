@@ -1,0 +1,9 @@
+# term starting with operator
+
+# x := * 5;
+
+x,IDENTIFIER
+:=,ASSIGN
+*,MULT
+5,NUMBER
+;,SEMICOLON

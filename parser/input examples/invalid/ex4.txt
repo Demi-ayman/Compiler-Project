@@ -1,0 +1,11 @@
+# ELSE without IF
+
+# else
+#    write x;
+# end
+
+else,ELSE
+write,WRITE
+x,IDENTIFIER
+;,SEMICOLON
+end,END

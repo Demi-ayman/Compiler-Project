@@ -1,0 +1,8 @@
+# read x;
+# write x
+
+read,READ
+x,IDENTIFIER
+;,SEMICOLON
+write,WRITE
+x,IDENTIFIER
