@@ -1,0 +1,13 @@
+# ninja log v6
+19	603	7866177652046029	TINYParserGUI_autogen/timestamp	fd41d2949f1889d3
+19	603	7866177652046029	D:/CSE-Senior 2/Compiler/Parser/TINYParserGUI/build/Desktop_Qt_6_10_1_MinGW_64_bit-Release/TINYParserGUI_autogen/mocs_compilation.cpp	fd41d2949f1889d3
+607	3373	7866177652789853	CMakeFiles/TINYParserGUI.dir/main.cpp.obj	20c2287bbd3e8abf
+616	3648	7866177652879854	CMakeFiles/TINYParserGUI.dir/parser.cpp.obj	abef413b45a1782
+19	603	7866177652046029	TINYParserGUI_autogen/mocs_compilation.cpp	fd41d2949f1889d3
+19	603	7866177652046029	D:/CSE-Senior 2/Compiler/Parser/TINYParserGUI/build/Desktop_Qt_6_10_1_MinGW_64_bit-Release/TINYParserGUI_autogen/timestamp	fd41d2949f1889d3
+620	3670	7866177652920242	CMakeFiles/TINYParserGUI.dir/graphviz_renderer.cpp.obj	4cd79922c5483972
+603	3380	7866177652749851	CMakeFiles/TINYParserGUI.dir/TINYParserGUI_autogen/mocs_compilation.cpp.obj	14508c9f6f8ffb58
+611	4405	7866177652829853	CMakeFiles/TINYParserGUI.dir/mainwindow.cpp.obj	1c556bbdc7bf77bb
+4405	4573	7866177690767809	TINYParserGUI.exe	1c9b8a9684ccc4ce
+27	55	7866177645633034	CMakeFiles/clean.additional	321391b2684b2653
+55	66	7866177645916878	clean	577b940aee94fbd7

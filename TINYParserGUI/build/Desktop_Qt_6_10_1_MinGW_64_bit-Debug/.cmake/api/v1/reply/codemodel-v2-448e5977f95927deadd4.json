@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-ca316b64793e944171fc.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "TINYParserGUI",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "TINYParserGUI::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-TINYParserGUI-Debug-69903c6e879e206dc41e.json",
+					"name" : "TINYParserGUI",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "TINYParserGUI_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-TINYParserGUI_autogen-Debug-cc9641e08a60efd038ea.json",
+					"name" : "TINYParserGUI_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "TINYParserGUI_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-TINYParserGUI_autogen_timestamp_deps-Debug-f0aba2a72a6fe00db659.json",
+					"name" : "TINYParserGUI_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/CSE-Senior 2/Compiler/Parser/TINYParserGUI/build/Desktop_Qt_6_10_1_MinGW_64_bit-Debug",
+		"source" : "D:/CSE-Senior 2/Compiler/Parser/TINYParserGUI"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}
